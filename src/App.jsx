@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import './App.css'
 import Navbar from "./components/Navbar"
-import {
-  RouterProvider,
-} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import Routers from './routes/index'
 import api from './axios'
 
 async function currentUser() {
-	const res = await api.get("/check")
-	console.log(res.data)
+	await api.get("/check")
 }
 
 function App() {
