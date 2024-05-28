@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react';
 import Api from '../axios'
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import userAtom from '../store/atom/userAtom';
 
 const Login = () => {
 	const navigate = useNavigate()
@@ -17,6 +19,7 @@ const Login = () => {
 		email: '',
 		password: ''
 	})
+	const [_, setCurrentUser] = useRecoilState(userAtom)
 
 	function updateFormData(label, value) {
 		setFormData((prev) => ({...prev, [label]: value}));
@@ -27,6 +30,7 @@ const Login = () => {
 		try {
 			const res = await Api.post("/login", formData)
 			localStorage.setItem("token", res.data.token)
+			setCurrentUser(res.data.user)
 			navigate("/")
 		} catch (error) {
 			alert(error.response.data.error)

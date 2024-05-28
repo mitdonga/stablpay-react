@@ -4,11 +4,11 @@ import Navbar from "./components/Navbar"
 import { RouterProvider } from "react-router-dom";
 import Routers from './routes/index'
 import Api from './axios'
-import useAtom from "./store/atom/userAtom"
+import userAtom from "./store/atom/userAtom"
 import { useRecoilState } from 'recoil';
 
 function App() {
-	const [_, setCurrentUser] = useRecoilState(useAtom)
+	const [_, setCurrentUser] = useRecoilState(userAtom)
 
 	async function currentUser() {
 		const res = await Api.get("/check")
