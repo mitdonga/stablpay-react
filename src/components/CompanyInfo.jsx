@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, CardHeader, CardBody, Stack, Box, Text, StackDivider, Heading, Badge, Flex, Spacer } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, Stack, Box, Text, StackDivider, Heading, Flex, Spacer } from '@chakra-ui/react'
+import { companyStatusBadge } from '../utils'
 
 export default function Company({company}) {
 	return (
@@ -9,7 +10,7 @@ export default function Company({company}) {
 						<Flex>
 							<Heading size='lg'>Company Info</Heading>
 							<Spacer />
-							{getBadge(company.status)}
+							{companyStatusBadge(company.status)}
 						</Flex>
 					</CardHeader>
 
@@ -100,24 +101,4 @@ export default function Company({company}) {
 				</Card>
 		</>
 	)
-}
-
-
-function getBadge(status) {
-	switch (status) {
-		case "pending":
-			return (<Badge my='2' fontSize='1.5em' colorScheme='yellow'>
-				Pending
-			</Badge>)
-		case "approved":
-			return (<Badge my='2' fontSize='1.5em' colorScheme='green'>
-				Approved
-			</Badge>)
-		case "rejected":
-			return (<Badge my='2' fontSize='1.5em' colorScheme='red'>
-				Rejected
-			</Badge>)
-		default:
-			return null;
-	}
 }
