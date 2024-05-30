@@ -19,6 +19,7 @@ const Login = () => {
 		email: '',
 		password: ''
 	})
+	
 	const [_, setCurrentUser] = useRecoilState(userAtom)
 
 	function updateFormData(label, value) {

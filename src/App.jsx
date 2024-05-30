@@ -16,7 +16,7 @@ function App() {
 	}
 
 	useEffect(() => {
-		currentUser()
+		if (localStorage.getItem('token') !== null) currentUser()
 	}, [])
 
   return (
