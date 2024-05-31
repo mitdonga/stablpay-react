@@ -29,7 +29,7 @@ import {
 } from '@chakra-ui/react'
 import { companyStatusBadge } from '../utils'
 
-export default function Companies() {
+function Companies() {
 	const toast = useToast()
 	const [company, setCompany] = useState(null)
 
@@ -200,3 +200,5 @@ export default function Companies() {
 		</Container>
 	)
 }
+
+export default Companies;

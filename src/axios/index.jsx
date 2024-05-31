@@ -4,9 +4,8 @@ const Api = axios.create({
   baseURL: import.meta.env.VITE_API_API_URL
 });
 
-const token = localStorage.getItem('token')
 Api.interceptors.request.use(config => {
-  config.headers['Authorization'] = token;
+  config.headers['Authorization'] = localStorage.getItem('token');
   config.headers['Content-Type'] = 'application/json';
   config.headers['Accept'] = 'application/json';
   return config;
