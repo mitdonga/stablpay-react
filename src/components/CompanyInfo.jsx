@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card, CardHeader, CardBody, Stack, Box, Text, StackDivider, Heading, Flex, Spacer } from '@chakra-ui/react'
+import { Highlight, Card, CardHeader, CardBody, Stack, Box, Text, StackDivider, Heading, Flex, Spacer, Badge, Link } from '@chakra-ui/react'
 import { companyStatusBadge } from '../utils'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export default function Company({company}) {
 	return (
@@ -12,6 +13,8 @@ export default function Company({company}) {
 							<Spacer />
 							{companyStatusBadge(company.status)}
 						</Flex>
+						{company.status === 'rejected' && 
+							<Text fontSize='1rem' color='tomato'><b>Reason of Rejection:</b> {company.rejection_reason}</Text>}
 					</CardHeader>
 
 					<CardBody>
@@ -24,6 +27,7 @@ export default function Company({company}) {
 									{company.legal_name}
 								</Text>
 							</Box>
+							
 							<Box mb={4}>
 								<Heading size='xs' textTransform='uppercase'>
 									Email
@@ -78,6 +82,26 @@ export default function Company({company}) {
 								</Heading>
 								<Text pt='2' fontSize='sm'>
 									{company.pan_number}
+									&nbsp;&nbsp; | &nbsp;&nbsp;
+									<Link href={company.pan_card_url} color='blue' isExternal>PAN Card <ExternalLinkIcon mx='2px' /></Link>
+								</Text>
+							</Box>
+							<Box mb={4}>
+								<Heading size='xs' textTransform='uppercase'>
+									GST No.
+								</Heading>
+								<Text pt='2' fontSize='sm'>
+									{company.gst_certificate_no} 
+									&nbsp;&nbsp; | &nbsp;&nbsp;
+									<Link href={company.gst_certificate_url} color='blue' isExternal>GST Certificate <ExternalLinkIcon mx='2px' /></Link>
+								</Text>
+							</Box>
+							<Box mb={4}>
+								<Heading size='xs' textTransform='uppercase'>
+									Incorporation Certificate
+								</Heading>
+								<Text pt='2' fontSize='sm'>
+									<Link href={company.incorporation_certificate_url} color='blue' isExternal>Incorporation Certificate <ExternalLinkIcon mx='2px' /></Link>
 								</Text>
 							</Box>
 							<Box mb={4}>
