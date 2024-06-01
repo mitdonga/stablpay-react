@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { faker } from '@faker-js/faker';
 
 const Signup = () => {
 	const navigate = useNavigate()
@@ -20,22 +21,22 @@ const Signup = () => {
 	const [panCard, setPanCard] = useState(null);
 	const [corpCeft, setCorpCeft] = useState(null);
 	const [userData, setUserData] = useState({
-		email: 'test111@yopmail.com',
-		password: '123456',
-		name: 'Test User'
+		email: '',
+		password: '',
+		name: faker.company.name()
 	})
 	const [companyData, setCompanyData] = useState({
-		legal_name: 'Your Company Name',
-		email: 'yourcompany@example.com',
-		address: '123 Main Street, Anytown, CA 12345',
-		phone_number: '555-555-5555',
-		director_name: 'John Doe',
+		legal_name: faker.company.name(),
+		email: faker.internet.email(),
+		address: faker.location.streetAddress({ useFullAddress: true }),
+		phone_number: faker.phone.number(),
+		director_name: faker.person.fullName(),
 		director_designation: 'CEO',
-		director_info: 'Some additional director information',
-		pan_number: 'ABCDE1234F',
-		primary_contact_person: 'Jane Smith',
-		primary_contact_info: '555-777-5555',
-		gst_certificate_no: '1234567890XYZ'
+		director_info: faker.lorem.sentence(5),
+		pan_number: faker.random.alphaNumeric(8),
+		primary_contact_person: faker.person.fullName(),
+		primary_contact_info: faker.phone.number(),
+		gst_certificate_no: faker.random.alphaNumeric(15)
 	});
 	
 

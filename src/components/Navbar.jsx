@@ -2,17 +2,18 @@ import { ReactNode, useEffect, useState } from 'react';
 import {
   Box,
   Flex,
-  Link,
   Button,
-  useDisclosure,
   useColorModeValue,
   Stack,
   useColorMode,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-
+import { useRecoilValue } from 'recoil';
+import userSelector from '../store/selectors/userSelector'
 
 export default function Nav() {
+	const currentUser = useRecoilValue(userSelector)
+	
   const { colorMode, toggleColorMode } = useColorMode();
 	const [isLogin, setIsLogin] = useState(false);
 
@@ -22,8 +23,8 @@ export default function Nav() {
 	}
 
 	useEffect(() => {
-		if (localStorage.getItem('token')) setIsLogin(true)
-	}, [])
+		if (currentUser?.email) setIsLogin(true)
+	}, [currentUser])
 
   return (
     <>
