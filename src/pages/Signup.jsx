@@ -62,7 +62,7 @@ const Signup = () => {
 		formData.append("user[company_attributes[incorporation_certificate]]", corpCeft, corpCeft.name)
 
 		try {
-			const res = await axios.post(`${import.meta.env.VITE_API_API_URL}/signup`, formData, {
+			const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, formData, {
 				headers: { 
 					'Content-Type': 'multipart/form-data'
 				}

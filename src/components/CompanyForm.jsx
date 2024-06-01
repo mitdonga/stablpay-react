@@ -43,7 +43,7 @@ const CompanyForm = () => {
 		if (panCard) formData.append("company[pan_card]", panCard, panCard.name)
 		if (corpCeft) formData.append("company[incorporation_certificate]", corpCeft, corpCeft.name)
 		try {
-			const res = await axios.put(`${import.meta.env.VITE_API_API_URL}/companies/${companyData.id}/resubmit`, formData, {
+			const res = await axios.put(`${import.meta.env.VITE_API_URL}/companies/${companyData.id}/resubmit`, formData, {
 				headers: { 
 					'Content-Type': 'multipart/form-data',
 					'Authorization': localStorage.getItem('token')

@@ -17,6 +17,7 @@ function App() {
 
 	useEffect(() => {
 		if (localStorage.getItem('token') !== null) currentUser()
+		console.log("ENV", import.meta.env)
 	}, [])
 
   return (
