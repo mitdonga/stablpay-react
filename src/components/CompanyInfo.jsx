@@ -1,5 +1,5 @@
 import React from 'react'
-import { Highlight, Card, CardHeader, CardBody, Stack, Box, Text, StackDivider, Heading, Flex, Spacer, Badge, Link } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, Stack, Box, Text, StackDivider, Heading, Flex, Spacer, Badge, Link } from '@chakra-ui/react'
 import { companyStatusBadge } from '../utils'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 

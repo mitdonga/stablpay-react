@@ -23,7 +23,7 @@ const Signup = () => {
 	const [userData, setUserData] = useState({
 		email: '',
 		password: '',
-		name: faker.company.name()
+		name: faker.person.fullName()
 	})
 	const [companyData, setCompanyData] = useState({
 		legal_name: faker.company.name(),
